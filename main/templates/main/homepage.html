@@ -1,0 +1,33 @@
+{% extends "main/header.html" %}
+
+{% block homepage %}
+<ul class="nav navbar-nav navbar-right">
+  <a class="btn btn-primary" href="../login" role="button">LOG IN</a>
+</ul>
+{% endblock %}
+
+{% block content %}
+<!-- JUMBOTRON -->
+<div class="jumbotron">
+  <center>
+    <h1>peptalk</h1>
+    <h4>bringing debaters together</h4>
+    <!-- <p><a class="btn btn-primary btn-lg" href="../mentee_signup" role="button">Sign Up as a Mentee</a></p>
+    <p><a class="btn btn-primary btn-lg" href="../mentor_signup" role="button">Sign Up as a Mentor</a></p> -->
+  </center>
+</div>
+
+<!-- TABS -->
+<ul class="nav nav-tabs nav-justified">
+  <li role="presentation" class="active"><a href="../About">ABOUT</a></li>
+  <li role="presentation" class="active"><a href="../Mentees">MENTEES</a></li>
+  <li role="presentation" class="active"><a href="../Mentors">MENTORS</a></li>
+  <li role="presentation" class="active"><a href="../Contact">CONTACT</a></li>
+</ul>
+
+<div class="container-fluid">
+{% block tabs %}
+{% endblock %}
+</div>
+
+{% endblock %}

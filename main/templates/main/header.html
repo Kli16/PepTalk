@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <title>PepTalk Home</title>
+  <meta charset="utf-8"/>
+  {% load staticfiles %}
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Hammersmith+One|Josefin+Sans|Montserrat|Righteous" rel="stylesheet">
+  <link rel='stylesheet' href="{%static 'main/bootstrap/css/bootstrap.min.css' %}" type='text/css'/>
+  <link rel='stylesheet' href="{%static 'main/Flat-UI/dist/css/flat-ui.min.css' %}" type='text/css'/>
+  <link rel='stylesheet' href="{%static 'main/custom.css' %}" type='text/css'/>
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+</head>
+
+<body class="body" style="background-color:#bdc3c7">
+  <!-- HEADER -->
+  <nav class="navbar navbar-default navbar-static-top navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">PEPTALK</a>
+    </div>
+    {% block homepage %}
+    {% endblock %}
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div style="margin-top:60px;">
+  {% block content %}
+  {% endblock %}
+</div>
+</body>
+
+</html>

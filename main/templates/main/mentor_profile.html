@@ -1,0 +1,14 @@
+{% extends "main/mentor.html" %}
+
+{% block content %}
+<center>
+<h2 style="font-size:35px">{{ user.username }}</h2>
+<div class="circle-avatar" style="background-image:url({{ user.profile.avatar.url }})"></div> <br>
+<h4> {{ user.first_name }}
+{{ user.last_name }}</h4>
+<div> {{ user.profile.school }}</div>
+<div> Age {{ user.profile.age }}</div>
+<div> Experience: {{ user.profile.experience }}</div>
+
+</center>
+{% endblock %}

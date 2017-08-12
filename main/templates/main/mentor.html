@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <title>PepTalk Mentors</title>
+  <meta charset="utf-8"/>
+  {% load staticfiles %}
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Hammersmith+One|Josefin+Sans|Montserrat|Righteous" rel="stylesheet">
+  <link rel='stylesheet' href="{%static 'main/bootstrap/css/bootstrap.min.css' %}" type='text/css'/>
+  <link rel='stylesheet' href="{%static 'main/Flat-UI/dist/css/flat-ui.min.css' %}" type='text/css'/>
+  <link rel='stylesheet' href="{%static 'main/custom.css' %}" type='text/css'/>
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+</head>
+
+<body class="body" style="background-color:#bdc3c7">
+  <!-- HEADER -->
+  <nav class="navbar navbar-default navbar-static-top navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/mentor">Hey, {{user.first_name}}!</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <a class="btn btn-primary" href="../logout" role="button">LOG OUT</a>
+    </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <!-- TABS -->
+  <ul class="nav nav-tabs nav-justified" style="margin-top:60px;">
+    <li role="presentation" class="active"><a href="../prepsharing">Prep Sharing</a></li>
+    <li role="presentation" class="active"><a href="../drills">Drill Time</a></li>
+    <li role="presentation" class="active"><a href="../tournament">Tournament Help</a></li>
+    <li role="presentation" class="active"><a href="../mentor_profile">Profile</a></li>
+  </ul>
+  <div style="margin-top:10px;">
+  {% block content %}
+  {% endblock %}
+</div>
+
+</body>
+
+</html>

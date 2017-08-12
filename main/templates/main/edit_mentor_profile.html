@@ -1,0 +1,14 @@
+{% extends "main/mentor.html" %}
+
+{% block content %}
+<center>
+<h2>Edit Profile</h2>
+<div class="input-group">
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-default btn-lg">Edit</button>
+</form>
+</div>
+</center>
+{% endblock %}

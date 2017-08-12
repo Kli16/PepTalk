@@ -1,0 +1,80 @@
+<div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript">jQuery(function($) {
+    // Asynchronously Load the map API
+    var script = document.createElement('script');
+    script.src = "//maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+    document.body.appendChild(script);
+});
+
+function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap',
+        zoom: 50,
+        center: new google.maps.LatLng(39.633383, -97.138263),
+        scrollwheel: false,
+
+    };
+
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+
+    // Multiple Markers
+    var markers = [
+        ['Yale University, Connecticut', 41.316337, -72.922216],
+        ['Byram Hills, New York', 41.1346828,-73.6919611]
+    ];
+
+    // Info Window Content
+    var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h6>YALE</h6>' +
+        '<p style="font-size:14px;"> SEPT | 8-9 </p>' +
+        '<p style="font-size:12px;"> Mentors: Kevin </p>' +
+        '</div>'],
+        ['<div class="info_content">' +
+        '<h6>BYRAM HILLS</h6>' +
+        '<p style="font-size:14px;"> SEPT | 16-17 </p>' +
+        '<p style="font-size:12px;"> Mentors: Kevin </p>' +
+        '</div>']
+    ];
+
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+    // Loop through our array of markers & place each one on the map
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0]
+        });
+
+        // Allow each marker to have an info window
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // Automatically center the map fitting all markers on the screen
+        //map.fitBounds(bounds);
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(4);
+        google.maps.event.removeListener(boundsListener);
+    });
+
+}</script>

@@ -1,0 +1,14 @@
+{% extends "main/mentee.html" %}
+
+{% block content %}
+<center>
+<h2>{{ user.username }}</h2>
+<div class="circle-avatar" onclick="window.open('{{user.profile.facebook}}', '_blank')" target="_blank" style="background-image:url({{ user.profile.avatar.url }})"></div> <br>
+<h4> {{ user.first_name }}
+{{ user.last_name }}</h4>
+<div> {{ user.profile.school }}</div>
+<div> Age {{ user.profile.age }}</div>
+<div> Email: {{ user.email }}</div>
+<div> Experience: {{ user.profile.experience }}</div>
+</center>
+{% endblock %}
