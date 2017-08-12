@@ -27,7 +27,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'q7ajac97fw0(fm#@t(@_##ktejqlbf
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = [
-    'radiant-reef-78196.herokuapp.com'
+    'radiant-reef-78196.herokuapp.com',
+    u'127.0.0.1'
 ]
 
 LOGIN_REDIRECT_URL = 'login_success'
