@@ -20,6 +20,7 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to='media/images/avatars/', null=True, blank=True)
     facebook = models.URLField(max_length=500, blank=True)
     experience = models.CharField(max_length=400, blank=True, default='')
+    debateexpertise = models.CharField(max_length=400, blank=True, default='')
 
     def __str__(self):
         return self.user.username
