@@ -108,6 +108,8 @@ def login_success(request):
         return redirect("mentee")
     if request.user.groups.filter(name="Mentors").exists():
         return redirect("mentor")
+    else:
+        return redirect("index")
 
 @login_required
 @user_passes_test(is_mentor)
