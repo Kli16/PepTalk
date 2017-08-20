@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-{% load staticfiles %}
 #class User(models.Model):
 #    username = models.CharField(max_length=20, default='')
 #    email = models.EmailField(max_length=254)
@@ -18,7 +17,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     school = models.CharField(max_length=40,default='', blank=True)
     age = models.IntegerField(default=0, blank=True)
-    avatar = models.ImageField(upload_to='media/images/avatars/', null=True, blank=True, default={% static 'media/Contact/default.png' %})
+    avatar = models.ImageField(upload_to='media/images/avatars/', null=True, blank=True, default='static/media/Contact/default.png')
     facebook = models.URLField(max_length=500, blank=True)
     experience = models.CharField(max_length=400, blank=True, default='')
     debateexpertise = models.CharField(max_length=400, blank=True, default='')
