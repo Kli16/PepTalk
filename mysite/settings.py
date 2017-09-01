@@ -29,7 +29,8 @@ DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 ALLOWED_HOSTS = [
     'radiant-reef-78196.herokuapp.com',
     u'127.0.0.1',
-    'peptalkdebate.herokuapp.com'
+    'peptalkdebate.herokuapp.com',
+    'www.peptalkdebate.org'
 ]
 
 LOGIN_REDIRECT_URL = 'login_success'
